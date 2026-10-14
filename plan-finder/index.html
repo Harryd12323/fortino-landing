@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Preview only: keep search engines out, and block the browser from submitting or sending anything. -->
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="form-action 'none'; connect-src 'none'">
+<title>Find Your Plan | Dr. Robert Fortino</title>
+<meta name="author" content="Dr. Robert Fortino">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap">
+<style>
+  /* Same colors, fonts and sizes as previews/fortino-replica/index.html. */
+  :root {
+    --radius: .5rem;
+    --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
+    --font-display: "Playfair Display", Georgia, serif;
+    --brand-tint: oklch(97.2% .014 224);
+    --background: oklch(100% 0 0);
+    --foreground: oklch(24% .03 250);
+    --card: oklch(100% 0 0);
+    --primary: oklch(40% .093 250.5);
+    --secondary: oklch(65.5% .107 233);
+    --secondary-foreground: oklch(100% 0 0);
+    --muted: oklch(97.2% .008 235);
+    --muted-foreground: oklch(50% .025 250);
+    --accent: oklch(95.5% .019 227);
+    --destructive: oklch(55% .2 27.3);
+    --border: oklch(90% .012 240);
+    --input: oklch(88% .014 240);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+  html { -webkit-text-size-adjust: 100%; line-height: 1.5; }
+  body { background: var(--background); color: var(--foreground); font-family: var(--font-sans);
+         -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -.01em; font-weight: inherit; font-size: inherit; }
+  img { display: block; max-width: 100%; height: auto; }
+  button, input { font: inherit; color: inherit; background: none; }
+  button { cursor: pointer; }
+  fieldset { min-width: 0; }
+  a { color: inherit; text-decoration: none; }
+  [hidden] { display: none !important; }
+
+  .wrap-6 { margin: 0 auto; max-width: 72rem; padding: 0 1.25rem; }
+  .wrap-5 { margin: 0 auto; max-width: 64rem; padding: 0 1.25rem; }
+  .wrap-3 { margin: 0 auto; max-width: 48rem; padding: 0 1.25rem; }
+
+  header { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--border);
+           background: color-mix(in oklab, var(--background) 95%, transparent);
+           -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+  header .wrap-6 { display: flex; align-items: center; justify-content: space-between;
+                   padding-top: .75rem; padding-bottom: .75rem; }
+  .logo { height: 2.25rem; width: auto; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+         border-radius: calc(var(--radius) - 2px); background: var(--secondary); color: var(--secondary-foreground);
+         font-weight: 600; text-transform: uppercase; letter-spacing: .025em; transition: background-color .15s;
+         min-height: 44px; text-align: center; }
+  .btn:hover { background: var(--primary); }
+  .btn:disabled { opacity: .5; cursor: not-allowed; }
+  .btn:disabled:hover { background: var(--secondary); }
+  .btn-header { display: none; padding: .625rem 1.25rem; font-size: .875rem; line-height: 1.25rem; }
+  .btn-big { width: 100%; padding: 1rem 1.5rem; font-size: 1.125rem; line-height: 1.75rem; }
+  .btn-outline { background: var(--background); color: var(--primary); border: 2px solid var(--primary); }
+  .btn-outline:hover { background: var(--accent); }
+  .back { min-height: 44px; padding: 0 .25rem; font-size: .95rem; font-weight: 600; color: var(--primary); }
+  .back:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+  #finder { background: var(--brand-tint); }
+  #finder > .wrap-3 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .center { text-align: center; }
+  .eyebrow { font-size: .875rem; line-height: 1.25rem; font-weight: 600; text-transform: uppercase;
+             letter-spacing: .18em; color: var(--secondary); }
+  h1 { margin-top: .75rem; font-size: 2.25rem; line-height: 1.1; color: var(--primary); }
+  .lead { margin: 1.25rem auto 0; max-width: 42rem; font-size: 1.125rem; line-height: 1.625;
+          color: color-mix(in oklab, var(--foreground) 80%, transparent); }
+
+  .tool { margin-top: 2rem; border: 1px solid var(--border); border-radius: .75rem; background: var(--card);
+          padding: 1.25rem; box-shadow: 0 1px 3px 0 #0000001a, 0 1px 2px -1px #0000001a; }
+
+  /* Progress bar */
+  .progress-row { display: flex; justify-content: space-between; align-items: center; font-size: .875rem;
+                  line-height: 1.25rem; font-weight: 600; color: var(--muted-foreground); }
+  .bar { margin-top: .5rem; height: .5rem; border-radius: 9999px; background: var(--muted); overflow: hidden;
+         border: 1px solid var(--border); }
+  .bar span { display: block; height: 100%; width: 0; background: var(--secondary); border-radius: 9999px;
+              transition: width .3s ease; }
+
+  .step { margin-top: 1.5rem; }
+  .step:focus { outline: none; }
+  .q { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.25; color: var(--primary); }
+  .hint { margin-top: .25rem; font-size: .875rem; line-height: 1.25rem; color: var(--muted-foreground); }
+
+  .options { margin-top: 1.25rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: .75rem; }
+  .opt { display: flex; width: 100%; align-items: center; gap: .75rem; border-radius: var(--radius);
+         border: 2px solid var(--border); background: var(--background); padding: 1rem; text-align: left;
+         transition: border-color .15s, background-color .15s; min-height: 56px; }
+  .opt:hover { border-color: color-mix(in oklab, var(--secondary) 60%, transparent);
+               background: color-mix(in oklab, var(--accent) 40%, transparent); }
+  .opt .box { display: flex; width: 1.25rem; height: 1.25rem; flex-shrink: 0; align-items: center;
+              justify-content: center; border-radius: 9999px; border: 2px solid var(--input); background: var(--background); }
+  .opt .box svg { display: none; width: .875rem; height: .875rem; }
+  .opt .label { font-size: 1rem; font-weight: 500; line-height: 1.375; color: var(--foreground); }
+  .opt[aria-checked="true"] { border-color: var(--secondary); background: var(--accent); }
+  .opt[aria-checked="true"] .box { border-color: var(--secondary); background: var(--secondary); color: var(--secondary-foreground); }
+  .opt[aria-checked="true"] .box svg { display: block; }
+
+  /* Slider */
+  .slider-wrap { margin-top: 1.75rem; }
+  .slider-value { text-align: center; font-family: var(--font-display); font-size: 1.375rem; line-height: 1.3;
+                  color: var(--primary); min-height: 1.8rem; }
+  input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 44px; margin-top: .75rem;
+                      background: transparent; cursor: pointer; touch-action: pan-y; }
+  input[type=range]:focus { outline: none; }
+  input[type=range]::-webkit-slider-runnable-track { height: .5rem; border-radius: 9999px;
+      background: linear-gradient(to right, var(--secondary) var(--fill, 0%), var(--muted) var(--fill, 0%));
+      border: 1px solid var(--border); }
+  input[type=range]::-moz-range-track { height: .5rem; border-radius: 9999px; background: var(--muted); border: 1px solid var(--border); }
+  input[type=range]::-moz-range-progress { height: .5rem; border-radius: 9999px; background: var(--secondary); }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 32px; height: 32px; margin-top: -13px;
+      border-radius: 9999px; background: var(--background); border: 3px solid var(--secondary);
+      box-shadow: 0 1px 3px #00000033; }
+  input[type=range]::-moz-range-thumb { width: 26px; height: 26px; border-radius: 9999px; background: var(--background);
+      border: 3px solid var(--secondary); box-shadow: 0 1px 3px #00000033; }
+  input[type=range]:focus-visible::-webkit-slider-thumb { outline: 3px solid color-mix(in oklab, var(--secondary) 40%, transparent); }
+  .ticks { display: flex; justify-content: space-between; margin-top: .25rem; font-size: .8rem; line-height: 1.2;
+           color: var(--muted-foreground); }
+  .ticks span { max-width: 25%; }
+  .ticks span:nth-child(2) { text-align: center; }
+  .ticks span:nth-child(3) { text-align: center; }
+  .ticks span:last-child { text-align: right; }
+
+  /* Contact step */
+  .fields { margin-top: 1.25rem; }
+  .fields > * + * { margin-top: 1rem; }
+  label { display: block; margin-bottom: .375rem; font-size: .875rem; line-height: 1.25rem; font-weight: 500; }
+  .req { color: var(--destructive); }
+  input[type=text], input[type=email] { width: 100%; border-radius: calc(var(--radius) - 2px); border: 2px solid var(--input);
+          background: var(--background); padding: .75rem 1rem; font-size: 1rem; line-height: 1.5rem;
+          color: var(--foreground); outline: none; transition: border-color .15s; }
+  input::placeholder { color: var(--muted-foreground); }
+  input[type=text]:focus, input[type=email]:focus { border-color: var(--secondary); }
+  .err { margin-top: .25rem; font-size: .875rem; line-height: 1.25rem; color: var(--destructive); }
+  .err:empty { display: none; }
+  .privacy-note { margin-top: 1rem; font-size: .8rem; line-height: 1.4; color: var(--muted-foreground); }
+
+  .nav-row { margin-top: 1.75rem; display: flex; flex-direction: column-reverse; gap: .75rem; align-items: stretch; }
+  .nav-row .back { align-self: center; }
+  .nav-row .btn { width: 100%; padding: .875rem 1.5rem; font-size: 1rem; }
+
+  /* Result */
+  .result-eyebrow { font-size: .8rem; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; color: var(--secondary); }
+  .result-title { margin-top: .5rem; font-family: var(--font-display); font-size: 1.875rem; line-height: 1.2; color: var(--primary); }
+  .result-greet { margin-top: .25rem; font-size: 1rem; color: var(--muted-foreground); }
+  .result-card { margin-top: 1.25rem; border: 2px solid var(--secondary); background: var(--accent); border-radius: var(--radius); padding: 1.25rem; }
+  .result-card h3 { font-size: 1.5rem; line-height: 1.25; color: var(--primary); }
+  .result-card p { margin-top: .5rem; font-size: 1rem; line-height: 1.625; color: color-mix(in oklab, var(--foreground) 85%, transparent); }
+  .summary { margin-top: 1.25rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: .5rem; }
+  .summary li { list-style: none; display: flex; align-items: flex-start; gap: .5rem; font-size: .95rem; line-height: 1.4; }
+  .summary svg { margin-top: .15rem; width: 1rem; height: 1rem; flex-shrink: 0; color: var(--secondary); }
+  .summary b { font-weight: 600; }
+  .not-advice { margin-top: 1.25rem; border-left: 4px solid var(--secondary); background: var(--muted);
+                padding: .75rem 1rem; border-radius: 0 var(--radius) var(--radius) 0; font-size: .95rem; line-height: 1.5; }
+  .ctas { margin-top: 1.5rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: .75rem; }
+  .demo-msg { margin-top: .75rem; text-align: center; font-size: .9rem; font-weight: 600; color: var(--primary); }
+  .demo-msg:empty { display: none; }
+  .fine { margin-top: .75rem; text-align: center; font-size: .875rem; line-height: 1.25rem; color: var(--muted-foreground); }
+  .restart { display: block; margin: 1rem auto 0; }
+
+  footer { border-top: 1px solid var(--border); background: color-mix(in oklab, var(--muted) 60%, transparent); }
+  footer .wrap-5 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .foot-name { font-family: var(--font-display); font-size: 1.125rem; line-height: 1.75rem; color: var(--primary); }
+  .foot-towns { margin-top: .25rem; font-size: .875rem; line-height: 1.25rem; color: var(--muted-foreground); }
+  footer nav { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; font-size: .875rem; line-height: 1.25rem; }
+  footer nav a { color: var(--primary); text-underline-offset: 4px; display: inline-block; padding: .5rem 0; }
+  footer nav a:hover { text-decoration: underline; }
+  .legal { margin-top: 1.5rem; font-size: .75rem; line-height: 1.625; color: var(--muted-foreground); }
+  .legal > * + * { margin-top: .75rem; }
+
+  @media (min-width: 40rem) {
+    .logo { height: 2.75rem; }
+    h1 { font-size: 3rem; }
+    .tool { padding: 2rem; }
+    .options.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .nav-row { flex-direction: row; justify-content: space-between; align-items: center; }
+    .nav-row .btn { width: auto; min-width: 12rem; }
+    .ctas { grid-template-columns: 3fr 2fr; }
+    .summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (min-width: 48rem) {
+    .btn-header { display: inline-flex; }
+    #finder > .wrap-3 { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .bar span { transition: none; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap-6">
+    <img src="images/dr-fortino-logo.png" alt="Dr. Robert Fortino — Weight Loss, Anti-Aging, Lifestyle Medicine" class="logo" width="372" height="95">
+    <!-- CONFIRM: final booking link (points at the landing page preview for now) -->
+    <a class="btn btn-header" href="../#consult">Book a FREE Consult</a>
+  </div>
+</header>
+
+<main>
+  <section id="finder">
+    <div class="wrap-3">
+      <div class="center">
+        <p class="eyebrow">Philadelphia &amp; South Jersey</p>
+        <h1>Find Your Plan</h1>
+        <p class="lead">Answer a few quick questions about your goals and preferences to see a good place to start your conversation with Dr. Fortino's team.</p>
+      </div>
+
+      <!-- DEMO ONLY: nothing here is sent or saved. There is no form action, no network call, and no browser storage. -->
+      <div class="tool" aria-live="polite">
+        <div id="progress">
+          <div class="progress-row"><span id="step-label">Question 1 of 4</span><span id="step-pct">0%</span></div>
+          <div class="bar" role="progressbar" aria-label="Progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="bar-fill"></span></div>
+        </div>
+
+        <!-- Step 1: main goal -->
+        <div class="step" data-step="1" tabindex="-1">
+          <h2 class="q">What's your main goal?</h2>
+          <p class="hint">Pick the one that fits best.</p>
+          <div class="options" role="radiogroup" aria-label="Main goal" data-name="goal">
+            <button type="button" class="opt" role="radio" aria-checked="false" data-value="weight"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="label">Weight management</span></button>
+            <button type="button" class="opt" role="radio" aria-checked="false" data-value="energy"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="label">Energy &amp; metabolism</span></button>
+            <button type="button" class="opt" role="radio" aria-checked="false" data-value="mens"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="label">Men's health &amp; hormones</span></button>
+            <button type="button" class="opt" role="radio" aria-checked="false" data-value="unsure"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="label">Not sure yet</span></button>
+          </div>
+        </div>
+
+        <!-- Step 2: how soon (slider) -->
+        <div class="step" data-step="2" tabindex="-1" hidden>
+          <h2 class="q">How soon would you like to get started?</h2>
+          <p class="hint">Slide to choose.</p>
+          <div class="slider-wrap">
+            <p class="slider-value" id="soon-value">In the next month or two</p>
+            <input type="range" id="soon" min="0" max="3" step="1" value="1" aria-label="How soon would you like to get started?" aria-valuetext="In the next month or two">
+            <div class="ticks" aria-hidden="true"><span>Just exploring</span><span>Month or two</span><span>Within weeks</span><span>Right away</span></div>
+          </div>
+        </div>
+
+        <!-- Step 3: preferred office -->
+        <div class="step" data-step="3" tabindex="-1" hidden>
+          <h2 class="q">Which office do you prefer?</h2>
+          <div class="options two" role="radiogroup" aria-label="Preferred office" data-name="office">
+            <button type="button" class="opt" role="radio" aria-checked="false" data-value="South Philadelphia, PA"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="label">South Philadelphia</span></button>
+            <!-- CONFIRM: Blackwood or Turnersville -->
+            <button type="button" class="opt" role="radio" aria-checked="false" data-value="Blackwood, NJ"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="label">Blackwood, NJ</span></button>
+          </div>
+        </div>
+
+        <!-- Step 4: in-person -->
+        <div class="step" data-step="4" tabindex="-1" hidden>
+          <h2 class="q">Do you prefer in-person visits?</h2>
+          <p class="hint">Dr. Fortino's practice offers face-to-face, doctor-led follow-up.</p>
+          <div class="options two" role="radiogroup" aria-label="Prefer in-person visits" data-name="inperson">
+            <button type="button" class="opt" role="radio" aria-checked="false" data-value="yes"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="label">Yes, in person</span></button>
+            <button type="button" class="opt" role="radio" aria-checked="false" data-value="no"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="label">No preference</span></button>
+          </div>
+        </div>
+
+        <!-- Step 5: name and email (demo: never sent or saved) -->
+        <form class="step" data-step="5" tabindex="-1" hidden id="contact-form" novalidate onsubmit="return false">
+          <h2 class="q">See your recommended starting point.</h2>
+          <p class="hint">Tell us where to find you.</p>
+          <div class="fields">
+            <div>
+              <label for="firstName">First Name <span class="req">*</span></label>
+              <input type="text" id="firstName" autocomplete="given-name" placeholder="Jane" maxlength="40">
+              <p class="err" id="err-firstName"></p>
+            </div>
+            <div>
+              <label for="email">Email Address <span class="req">*</span></label>
+              <input type="email" id="email" inputmode="email" autocomplete="email" placeholder="you@email.com" maxlength="120">
+              <p class="err" id="err-email"></p>
+            </div>
+          </div>
+          <p class="privacy-note">Demo only: your name and email stay on this screen. They are not sent or saved anywhere.</p>
+        </form>
+
+        <!-- Navigation -->
+        <div class="nav-row" id="nav">
+          <button type="button" class="back" id="back-btn" hidden>← Back</button>
+          <button type="button" class="btn" id="next-btn" disabled>Next →</button>
+        </div>
+
+        <!-- Step 6: result -->
+        <div class="step" data-step="6" tabindex="-1" hidden id="result">
+          <p class="result-eyebrow">Your recommended starting point</p>
+          <h2 class="result-title" id="r-greet">Here's where to start</h2>
+          <div class="result-card">
+            <h3 id="r-service">Medical Weight Loss</h3>
+            <p id="r-care"></p>
+          </div>
+          <ul class="summary" id="r-summary"></ul>
+          <p class="not-advice">This is a starting point, not medical advice. A licensed provider decides what's right for you at your consultation.</p>
+          <div class="ctas">
+            <!-- CONFIRM: final booking link (points at the landing page preview for now) -->
+            <a class="btn btn-big" href="../#consult">Book My FREE Consultation →</a>
+            <!-- CONFIRM: practice phone number (copied from the live page's form placeholder) -->
+            <a class="btn btn-big btn-outline" href="tel:+12153368000">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+              Tap to Call
+            </a>
+          </div>
+          <p class="fine">No obligation. Speak with our team and learn which options may be right for you.</p>
+          <button type="button" class="back restart" id="restart-btn">Start over</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap-5">
+    <p class="foot-name">Dr. Robert Fortino, DO</p>
+    <!-- CONFIRM: Blackwood or Turnersville -->
+    <p class="foot-towns">South Philadelphia, PA · Blackwood, NJ</p>
+    <nav>
+      <a href="https://drfortino.net/privacy-policy/">Privacy Policy</a>
+      <a href="https://drfortino.net/hipaa-privacy-policy/">HIPAA Privacy Policy</a>
+      <a href="https://drfortino.net/terms-conditions/">Terms &amp; Conditions</a>
+    </nav>
+    <div class="legal">
+      <p>Compounded medications are prepared by a licensed compounding pharmacy and are not approved by the FDA for safety, effectiveness, or manufacturing. Compounded Semaglutide and Tirzepatide are not the same as, and are not generic versions of, any FDA-approved brand-name medication.</p>
+      <p>All treatment requires an evaluation by a licensed provider. Individual results vary. The information on this page is for general education only and is not medical advice, diagnosis, or treatment. Some restrictions apply.</p>
+      <p>© 2026 Dr. Robert Fortino. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // DEMO ONLY. Answers live in this one variable while the page is open. Nothing is sent, saved, or stored
+  // in the browser (no fetch, no form action, no cookies, no localStorage). Reloading the page clears it.
+  var answers = { goal: null, soon: 1, office: null, inperson: null, firstName: "", email: "" };
+  var QUESTIONS = 4, STEPS = 5;   // 4 questions + name/email, then the result
+  var step = 1;
+
+  var SOON = ["Just exploring for now", "In the next month or two", "Within the next few weeks", "As soon as possible"];
+
+  // Goals and preferences only. Care descriptions say what the care involves, never what it will achieve.
+  var SERVICES = {
+    weight: {
+      name: "Medical Weight Loss",
+      care: "Physician-supervised care built around you. Options include GLP-1 medications like Semaglutide and Tirzepatide, with custom dosing and in-person, doctor-led follow-up."
+    },
+    energy: {
+      name: "Metabolic & Wellness Therapy",
+      care: "Vitamin injections, peptide therapy, and additional options designed to support energy, metabolism, recovery, and wellness, planned with Dr. Fortino's clinical team."
+    },
+    mens: {
+      name: "Hormone Optimization",
+      care: "Testosterone Replacement Therapy and personalized men's health treatment options, led by board-certified physician Dr. Robert Fortino, DO."
+    }
+  };
+  var UNSURE_NOTE = " Not sure yet is completely fine: your FREE consultation covers all of Dr. Fortino's services, including Metabolic & Wellness Therapy and Hormone Optimization.";
+
+  var $ = function (id) { return document.getElementById(id); };
+  var nextBtn = $("next-btn"), backBtn = $("back-btn"), nav = $("nav");
+
+  function stepEl(n) { return document.querySelector('.step[data-step="' + n + '"]'); }
+
+  function ready() {
+    if (step === 1) return !!answers.goal;
+    if (step === 3) return !!answers.office;
+    if (step === 4) return !!answers.inperson;
+    return true;
+  }
+
+  function show(n) {
+    step = n;
+    document.querySelectorAll(".step").forEach(function (s) { s.hidden = +s.getAttribute("data-step") !== n; });
+    var done = n > STEPS;
+    $("progress").hidden = false;
+    nav.hidden = done;
+    backBtn.hidden = n === 1;
+    var pct = done ? 100 : Math.round(((n - 1) / STEPS) * 100);
+    $("bar-fill").style.width = pct + "%";
+    document.querySelector(".bar").setAttribute("aria-valuenow", pct);
+    $("step-pct").textContent = pct + "%";
+    $("step-label").textContent = done ? "All done" : n <= QUESTIONS ? "Question " + n + " of " + QUESTIONS : "Last step";
+    nextBtn.textContent = n === STEPS ? "Show My Starting Point →" : "Next →";
+    nextBtn.disabled = !ready();
+    if (done) render();
+    var el = stepEl(n);
+    if (el && step !== 1) el.focus({ preventScroll: true });
+    var tool = document.querySelector(".tool");
+    if (tool.getBoundingClientRect().top < 60) tool.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  // Tap buttons (one choice per question). Picking an answer moves on by itself after a short pause.
+  document.querySelectorAll(".options[data-name]").forEach(function (group) {
+    var name = group.getAttribute("data-name");
+    group.querySelectorAll(".opt").forEach(function (opt) {
+      opt.addEventListener("click", function () {
+        group.querySelectorAll(".opt").forEach(function (o) { o.setAttribute("aria-checked", "false"); });
+        opt.setAttribute("aria-checked", "true");
+        answers[name] = opt.getAttribute("data-value");
+        nextBtn.disabled = false;
+        var here = step;
+        setTimeout(function () { if (step === here) show(step + 1); }, 350);
+      });
+    });
+  });
+
+  // Slider
+  var soon = $("soon");
+  function updateSoon() {
+    answers.soon = +soon.value;
+    $("soon-value").textContent = SOON[answers.soon];
+    soon.setAttribute("aria-valuetext", SOON[answers.soon]);
+    soon.style.setProperty("--fill", (answers.soon / 3) * 100 + "%");
+  }
+  soon.addEventListener("input", updateSoon);
+  updateSoon();
+
+  // Name and email: checked here, never sent.
+  function checkContact() {
+    var ok = true, fn = $("firstName").value.trim(), em = $("email").value.trim();
+    $("err-firstName").textContent = ""; $("err-email").textContent = "";
+    if (fn.length < 1) { $("err-firstName").textContent = "Please enter your first name."; ok = false; }
+    if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(em)) { $("err-email").textContent = "Please enter a valid email address."; ok = false; }
+    if (ok) { answers.firstName = fn; answers.email = em; }
+    return ok;
+  }
+  $("contact-form").addEventListener("submit", function (e) { e.preventDefault(); if (checkContact()) show(STEPS + 1); });
+
+  nextBtn.addEventListener("click", function () {
+    if (step === STEPS) { if (checkContact()) show(STEPS + 1); return; }
+    if (ready()) show(step + 1);
+  });
+  backBtn.addEventListener("click", function () { if (step > 1) show(step - 1); });
+
+  function li(label, value) {
+    var item = document.createElement("li");
+    item.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+    var span = document.createElement("span"), b = document.createElement("b");
+    b.textContent = label + ": ";
+    span.appendChild(b);
+    span.appendChild(document.createTextNode(value));
+    item.appendChild(span);
+    return item;
+  }
+
+  function render() {
+    var key = answers.goal === "unsure" ? "weight" : answers.goal;
+    var s = SERVICES[key];
+    $("r-greet").textContent = answers.firstName ? answers.firstName + ", here's where to start" : "Here's where to start";
+    $("r-service").textContent = s.name;
+    $("r-care").textContent = s.care + (answers.goal === "unsure" ? UNSURE_NOTE : "");
+    var list = $("r-summary");
+    list.innerHTML = "";
+    list.appendChild(li("Preferred office", answers.office));
+    list.appendChild(li("Getting started", SOON[answers.soon]));
+    list.appendChild(li("Visits", answers.inperson === "yes"
+      ? "In person, with doctor-led follow-up at your office"
+      : "Starts with a FREE telephone consultation"));
+    list.appendChild(li("First step", "A FREE call with our Patient Care Coordinator"));
+  }
+
+  $("restart-btn").addEventListener("click", function () {
+    answers = { goal: null, soon: 1, office: null, inperson: null, firstName: "", email: "" };
+    document.querySelectorAll(".opt").forEach(function (o) { o.setAttribute("aria-checked", "false"); });
+    soon.value = 1; updateSoon();
+    $("firstName").value = ""; $("email").value = "";
+    show(1);
+  });
+
+  show(1);
+})();
+</script>
+</body>
+</html>

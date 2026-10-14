@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Preview only: keep search engines out, and block the browser from submitting the form or sending data anywhere. -->
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="form-action 'none'; connect-src 'none'">
+<title>Physician-Led Medical Weight Loss | Dr. Robert Fortino</title>
+<meta name="author" content="Dr. Robert Fortino">
+<meta name="description" content="Physician-supervised medical weight loss with Dr. Robert Fortino, DO. Personalized GLP-1, metabolic and hormone plans in Philadelphia &amp; South Jersey. Book a free consult.">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap">
+<style>
+  /* Colors, fonts and sizes copied from the live page's stylesheet. */
+  :root {
+    --radius: .5rem;
+    --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
+    --font-display: "Playfair Display", Georgia, serif;
+    --brand-tint: oklch(97.2% .014 224);
+    --background: oklch(100% 0 0);
+    --foreground: oklch(24% .03 250);
+    --card: oklch(100% 0 0);
+    --primary: oklch(40% .093 250.5);
+    --secondary: oklch(65.5% .107 233);
+    --secondary-foreground: oklch(100% 0 0);
+    --muted: oklch(97.2% .008 235);
+    --muted-foreground: oklch(50% .025 250);
+    --accent: oklch(95.5% .019 227);
+    --destructive: oklch(55% .2 27.3);
+    --border: oklch(90% .012 240);
+    --input: oklch(88% .014 240);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+  html { -webkit-text-size-adjust: 100%; line-height: 1.5; scroll-behavior: smooth; }
+  body { background: var(--background); color: var(--foreground); font-family: var(--font-sans);
+         -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -.01em; font-weight: inherit; font-size: inherit; }
+  img { display: block; max-width: 100%; height: auto; }
+  button, input { font: inherit; color: inherit; background: none; }
+  button { cursor: pointer; }
+  ul { list-style: none; }
+  fieldset { min-width: 0; }
+  a { color: inherit; text-decoration: none; }
+
+  .wrap-6 { margin: 0 auto; max-width: 72rem; padding: 0 1.25rem; }
+  .wrap-5 { margin: 0 auto; max-width: 64rem; padding: 0 1.25rem; }
+  .wrap-3 { margin: 0 auto; max-width: 48rem; padding: 0 1.25rem; }
+
+  /* Header */
+  header { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--border);
+           background: color-mix(in oklab, var(--background) 95%, transparent);
+           -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+  header .wrap-6 { display: flex; align-items: center; justify-content: space-between;
+                   padding-top: .75rem; padding-bottom: .75rem; }
+  .logo { height: 2.25rem; width: auto; }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; justify-content: center; border-radius: calc(var(--radius) - 2px);
+         background: var(--secondary); color: var(--secondary-foreground); font-weight: 600;
+         text-transform: uppercase; letter-spacing: .025em; transition: background-color .15s; }
+  .btn:hover { background: var(--primary); }
+  .btn:disabled { opacity: .7; }
+  .btn-header { display: none; padding: .625rem 1.25rem; font-size: .875rem; line-height: 1.25rem; }
+  .btn-cta { margin-top: 1.75rem; width: 100%; padding: 1rem 2rem; font-size: 1rem; line-height: 1.5rem; }
+  .btn-cta.lower { margin-top: 2.25rem; }
+  .btn-submit { width: 100%; padding: 1rem 1.5rem; font-size: 1.125rem; line-height: 1.75rem; }
+
+  /* Hero + form */
+  #consult { background: var(--brand-tint); scroll-margin-top: 5.5rem; }
+  #consult > .wrap-3 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .center { text-align: center; }
+  .eyebrow { font-size: .875rem; line-height: 1.25rem; font-weight: 600; text-transform: uppercase;
+             letter-spacing: .18em; color: var(--secondary); }
+  h1 { margin-top: .75rem; font-size: 2.25rem; line-height: 1.1; color: var(--primary); }
+  .lead { margin: 1.25rem auto 0; max-width: 42rem; font-size: 1.125rem; line-height: 1.625;
+          color: color-mix(in oklab, var(--foreground) 80%, transparent); }
+  .ticks { margin: 1.5rem auto 0; display: grid; grid-template-columns: minmax(0, 1fr); max-width: 42rem; gap: .5rem; text-align: left; }
+  .ticks li { display: flex; align-items: flex-start; gap: .5rem; font-size: .95rem; }
+  .ticks svg { margin-top: .125rem; width: 1rem; height: 1rem; flex-shrink: 0; color: var(--secondary); }
+
+  .form-card { margin-top: 2rem; border: 1px solid var(--border); border-radius: .75rem; background: var(--card);
+               padding: 1.25rem; box-shadow: 0 1px 3px 0 #0000001a, 0 1px 2px -1px #0000001a; }
+  form > * + * { margin-top: 2rem; }
+  legend { font-size: 1rem; line-height: 1.5rem; font-weight: 600; color: var(--primary); }
+  .hint { margin-top: .25rem; font-size: .875rem; line-height: 1.25rem; color: var(--muted-foreground); }
+  .options { margin-top: 1rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: .75rem; }
+  .opt { display: flex; width: 100%; align-items: flex-start; gap: .75rem; border-radius: var(--radius);
+         border: 2px solid var(--border); background: var(--background); padding: 1rem; text-align: left;
+         transition: border-color .15s, background-color .15s; min-height: 44px; }
+  .opt:hover { border-color: color-mix(in oklab, var(--secondary) 60%, transparent);
+               background: color-mix(in oklab, var(--accent) 40%, transparent); }
+  .opt .box { margin-top: .125rem; display: flex; width: 1.25rem; height: 1.25rem; flex-shrink: 0; align-items: center;
+              justify-content: center; border-radius: .25rem; border: 2px solid var(--input); background: var(--background); }
+  .opt .box svg { display: none; width: .875rem; height: .875rem; }
+  .opt .label { font-size: .95rem; font-weight: 500; line-height: 1.375; color: var(--foreground); }
+  .opt[aria-pressed="true"] { border-color: var(--secondary); background: var(--accent); }
+  .opt[aria-pressed="true"] .box { border-color: var(--secondary); background: var(--secondary); color: var(--secondary-foreground); }
+  .opt[aria-pressed="true"] .box svg { display: block; }
+
+  .fields > * + * { margin-top: 1rem; }
+  .fields legend { margin-bottom: 1rem; }
+  label { display: block; margin-bottom: .375rem; font-size: .875rem; line-height: 1.25rem; font-weight: 500; }
+  .req { color: var(--destructive); }
+  input { width: 100%; border-radius: calc(var(--radius) - 2px); border: 2px solid var(--input); background: var(--background);
+          padding: .75rem 1rem; font-size: 1rem; line-height: 1.5rem; color: var(--foreground); outline: none;
+          transition: border-color .15s; }
+  input::placeholder { color: var(--muted-foreground); }
+  input:focus { border-color: var(--secondary); }
+  .err { margin-top: .25rem; font-size: .875rem; line-height: 1.25rem; color: var(--destructive); }
+  .err.group { margin-top: .5rem; }
+  .err:empty { display: none; }
+  .fine { margin-top: .75rem; text-align: center; font-size: .875rem; line-height: 1.25rem; color: var(--muted-foreground); }
+
+  .award { margin-top: 1.5rem; display: flex; align-items: center; justify-content: center; gap: .75rem; }
+  .award img { width: 4rem; height: 4rem; border-radius: 9999px; background: var(--background); padding: .25rem;
+               box-shadow: 0 1px 3px 0 #0000001a, 0 1px 2px -1px #0000001a; }
+  .award p { max-width: 20rem; font-size: .875rem; line-height: 1.375;
+             color: color-mix(in oklab, var(--foreground) 70%, transparent); }
+
+  /* Approach + services */
+  .section { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+  .split { display: grid; grid-template-columns: minmax(0, 1fr); align-items: center; gap: 2.5rem; }
+  h2 { font-size: 1.875rem; line-height: 1.2; color: var(--primary); }
+  .body { margin-top: 1rem; font-size: 1.125rem; line-height: 1.625;
+          color: color-mix(in oklab, var(--foreground) 80%, transparent); }
+  .hero-img { width: 100%; border-radius: var(--radius); object-fit: cover;
+              box-shadow: 0 1px 3px 0 #0000001a, 0 1px 2px -1px #0000001a; }
+  .cards { margin-top: 3rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .card { border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); padding: 1.25rem; }
+  .card h3 { font-size: 1.25rem; line-height: 1.75rem; color: var(--primary); }
+  .card p { margin-top: .5rem; font-size: .95rem; line-height: 1.625;
+            color: color-mix(in oklab, var(--foreground) 75%, transparent); }
+
+  /* Experience */
+  .exp-body { max-width: 48rem; }
+  .facts { margin-top: 2rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  .fact { border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+  .fact h3 { font-size: 1.125rem; line-height: 1.75rem; color: var(--primary); }
+  .fact p { margin-top: .5rem; font-size: .875rem; line-height: 1.625;
+            color: color-mix(in oklab, var(--foreground) 75%, transparent); }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--border); background: color-mix(in oklab, var(--muted) 60%, transparent); }
+  footer .wrap-5 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .foot-name { font-family: var(--font-display); font-size: 1.125rem; line-height: 1.75rem; color: var(--primary); }
+  .foot-towns { margin-top: .25rem; font-size: .875rem; line-height: 1.25rem; color: var(--muted-foreground); }
+  footer nav { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; font-size: .875rem; line-height: 1.25rem; }
+  footer nav a { color: var(--primary); text-underline-offset: 4px; display: inline-block; padding: .5rem 0; }
+  footer nav a:hover { text-decoration: underline; }
+  .legal { margin-top: 1.5rem; font-size: .75rem; line-height: 1.625; color: var(--muted-foreground); }
+  .legal > * + * { margin-top: .75rem; }
+
+  /* sm: 640px and up */
+  @media (min-width: 40rem) {
+    .logo { height: 2.75rem; }
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.25rem; line-height: 1.11; }
+    .ticks, .options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .form-card { padding: 2rem; }
+    .btn-cta { width: auto; }
+    .facts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  /* md: 768px and up */
+  @media (min-width: 48rem) {
+    .btn-header { display: inline-flex; }
+    #consult > .wrap-3 { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+    .section { padding-top: 5rem; padding-bottom: 5rem; }
+    .split, .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap-6">
+    <img src="images/dr-fortino-logo.png" alt="Dr. Robert Fortino — Weight Loss, Anti-Aging, Lifestyle Medicine" class="logo" width="372" height="95">
+    <button type="button" class="btn btn-header" data-scroll>Book a FREE Consult</button>
+  </div>
+</header>
+
+<main>
+  <section id="consult">
+    <div class="wrap-3">
+      <div class="center">
+        <p class="eyebrow">Philadelphia &amp; South Jersey</p>
+        <h1>Physician-Led Weight Loss, Built Around You</h1>
+        <p class="lead">Get a personalized, medically supervised plan designed around your body, your health, and your individual goals. Answer a few quick questions and book your FREE telephone consultation with our Patient Care Coordinator.</p>
+        <ul class="ticks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Personalized Treatment Plans</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Physician-Supervised Care</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Advanced Weight Loss Options</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Philadelphia &amp; South Jersey Locations</span></li>
+        </ul>
+      </div>
+
+      <div class="form-card">
+        <!-- DEMO ONLY: no action, no method, and the page's security policy blocks form submission and network calls. -->
+        <form id="consult-form" novalidate onsubmit="return false">
+          <fieldset data-group="services" data-multi>
+            <legend>1. What services are you interested in?</legend>
+            <p class="hint">Select all that apply.</p>
+            <div class="options">
+              <button type="button" class="opt" aria-pressed="false" data-value="weight_loss_medications"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="label">Weight loss medications (GLP-1s like Semaglutide/Tirzepatide)</span></button>
+              <button type="button" class="opt" aria-pressed="false" data-value="vitamin_peptide"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="label">Vitamin &amp; Metabolic Injections</span></button>
+              <button type="button" class="opt" aria-pressed="false" data-value="trt"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="label">Testosterone Replacement Therapy (TRT)</span></button>
+              <button type="button" class="opt" aria-pressed="false" data-value="not_sure"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="label">Not sure — I'd like a consultation</span></button>
+            </div>
+            <p class="err group" data-err="services"></p>
+          </fieldset>
+
+          <fieldset data-group="location">
+            <legend>2. Which office do you prefer?</legend>
+            <div class="options">
+              <button type="button" class="opt" aria-pressed="false" data-value="south_philadelphia"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="label">South Philadelphia</span></button>
+              <!-- CONFIRM: Blackwood or Turnersville -->
+              <button type="button" class="opt" aria-pressed="false" data-value="blackwood"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="label">Blackwood, NJ</span></button>
+            </div>
+            <p class="err group" data-err="location"></p>
+          </fieldset>
+
+          <fieldset class="fields">
+            <legend>3. Where can we reach you?</legend>
+            <div>
+              <label for="fullName">Full Name <span class="req">*</span></label>
+              <input id="fullName" name="name" autocomplete="name" required placeholder="Jane Smith">
+              <p class="err" data-err="fullName"></p>
+            </div>
+            <div>
+              <label for="email">Email Address <span class="req">*</span></label>
+              <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required placeholder="you@email.com">
+              <p class="err" data-err="email"></p>
+            </div>
+            <div>
+              <label for="phone">Phone Number <span class="req">*</span></label>
+              <input id="phone" name="tel" type="tel" inputmode="tel" autocomplete="tel" required placeholder="(215) 336-8000">
+              <p class="err" data-err="phone"></p>
+            </div>
+            <div>
+              <label for="dob">Date of Birth <span class="req">*</span></label>
+              <input id="dob" name="bday" inputmode="numeric" autocomplete="bday" required placeholder="MM/DD/YYYY">
+              <p class="err" data-err="dob"></p>
+            </div>
+          </fieldset>
+
+          <div>
+            <button type="submit" class="btn btn-submit" id="submit-btn">Book My FREE Consultation →</button>
+            <p class="fine">No obligation. Speak with our team and learn which options may be right for you.</p>
+          </div>
+        </form>
+      </div>
+
+      <div class="award">
+        <img src="images/philly-favorites-2026.png" alt="Philly Favorites 2026 Gold Winner" width="110" height="110">
+        <p>Philly Favorites 2026 Gold Winner, voted by readers of The Philadelphia Inquirer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap-6 section">
+    <div class="split">
+      <div>
+        <h2>A Personalized Approach to Weight Loss &amp; Wellness</h2>
+        <p class="body">There's no one-size-fits-all approach to better health. Dr. Fortino and his clinical team create personalized treatment plans using modern medical weight-loss and wellness options designed around each patient's individual needs and goals.</p>
+        <button type="button" class="btn btn-cta" data-scroll>Book a FREE Consult Today</button>
+      </div>
+      <img src="images/hero-patient.jpg" alt="Patient of Dr. Fortino's medical weight loss practice" width="1408" height="1008" loading="lazy" class="hero-img">
+    </div>
+    <div class="cards">
+      <article class="card">
+        <h3>Medical Weight Loss</h3>
+        <p>GLP-1 medications including Semaglutide and Tirzepatide, and personalized weight-management options.</p>
+      </article>
+      <article class="card">
+        <h3>Metabolic &amp; Wellness Therapy</h3>
+        <p>Vitamin injections, peptide therapy, and additional options designed to support energy, metabolism, recovery, and wellness.</p>
+      </article>
+      <article class="card">
+        <h3>Hormone Optimization</h3>
+        <p>Testosterone Replacement Therapy and personalized men's health treatment options.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap-5 section">
+    <h2>Experience Matters. So Does Personal Care.</h2>
+    <p class="body exp-body">Known as the “Philly Diet Doc,” board-certified physician Dr. Robert Fortino, DO has more than 30 years of experience caring for patients across Philadelphia, New Jersey, and Delaware. His practices are built on medical accountability, custom dosing accuracy, and face-to-face care — not automated tele-health portals or franchised weight loss centers.</p>
+    <div class="facts">
+      <div class="fact">
+        <h3>Board-Certified Physician</h3>
+        <p>Care led by Dr. Robert Fortino, DO — 30+ years treating weight and metabolic health.</p>
+      </div>
+      <div class="fact">
+        <h3>Voted Philly's Favorite</h3>
+        <p>Philly Favorites 2026 Gold Winner, voted by readers of The Philadelphia Inquirer.</p>
+      </div>
+      <div class="fact">
+        <h3>Two Convenient Offices</h3>
+        <!-- CONFIRM: Blackwood or Turnersville -->
+        <p>South Philadelphia, PA and Blackwood, NJ — in-person, doctor-led follow-up.</p>
+      </div>
+    </div>
+    <button type="button" class="btn btn-cta lower" data-scroll>Schedule Your FREE Consult</button>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap-5">
+    <p class="foot-name">Dr. Robert Fortino, DO</p>
+    <!-- CONFIRM: Blackwood or Turnersville -->
+    <p class="foot-towns">South Philadelphia, PA · Blackwood, NJ</p>
+    <nav>
+      <a href="https://drfortino.net/privacy-policy/">Privacy Policy</a>
+      <a href="https://drfortino.net/hipaa-privacy-policy/">HIPAA Privacy Policy</a>
+      <a href="https://drfortino.net/terms-conditions/">Terms &amp; Conditions</a>
+    </nav>
+    <div class="legal">
+      <p>Compounded medications are prepared by a licensed compounding pharmacy and are not approved by the FDA for safety, effectiveness, or manufacturing. Compounded Semaglutide and Tirzepatide are not the same as, and are not generic versions of, any FDA-approved brand-name medication.</p>
+      <p>All treatment requires an evaluation by a licensed provider. Individual results vary. The information on this page is for general education only and is not medical advice, diagnosis, or treatment. Some restrictions apply.</p>
+      <p>© 2026 Dr. Robert Fortino. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Every CTA scrolls back up to the form, like the live page.
+  document.querySelectorAll("[data-scroll]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      document.getElementById("consult").scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  // Option buttons: services allow several, office allows one.
+  document.querySelectorAll("fieldset[data-group]").forEach(function (fs) {
+    var multi = fs.hasAttribute("data-multi");
+    fs.querySelectorAll(".opt").forEach(function (opt) {
+      opt.addEventListener("click", function () {
+        var on = opt.getAttribute("aria-pressed") !== "true";
+        if (!multi) fs.querySelectorAll(".opt").forEach(function (o) { o.setAttribute("aria-pressed", "false"); });
+        opt.setAttribute("aria-pressed", multi ? String(on) : "true");
+      });
+    });
+  });
+
+  function digits(s) { return s.replace(/\D/g, ""); }
+
+  // Same as-you-type formatting as the live page.
+  var dob = document.getElementById("dob"), phone = document.getElementById("phone");
+  dob.addEventListener("input", function () {
+    var t = digits(dob.value).slice(0, 8);
+    dob.value = t.length <= 2 ? t : t.length <= 4 ? t.slice(0, 2) + "/" + t.slice(2)
+      : t.slice(0, 2) + "/" + t.slice(2, 4) + "/" + t.slice(4);
+  });
+  phone.addEventListener("input", function () {
+    var t = digits(phone.value).slice(0, 10);
+    phone.value = t.length <= 3 ? t : t.length <= 6 ? "(" + t.slice(0, 3) + ") " + t.slice(3)
+      : "(" + t.slice(0, 3) + ") " + t.slice(3, 6) + "-" + t.slice(6);
+  });
+
+  function dobError(v) {
+    var t = digits(v);
+    if (t.length !== 8) return "Please enter your date of birth as MM/DD/YYYY.";
+    var m = +t.slice(0, 2), d = +t.slice(2, 4), y = +t.slice(4), dt = new Date(y, m - 1, d);
+    if (dt.getFullYear() !== y || dt.getMonth() !== m - 1 || dt.getDate() !== d) return "Please enter a valid date.";
+    var now = new Date(), age = now.getFullYear() - y;
+    if (now.getMonth() < m - 1 || (now.getMonth() === m - 1 && now.getDate() < d)) age--;
+    if (age < 18) return "You must be 18 or older to request a consultation.";
+    if (age > 100) return "Please enter a valid date of birth.";
+    return "";
+  }
+
+  // DEMO ONLY: checks the answers like the live page, then shows a notice. Nothing is sent or saved.
+  var form = document.getElementById("consult-form"), btn = document.getElementById("submit-btn");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var errs = {};
+    if (!form.querySelector('[data-group="services"] [aria-pressed="true"]')) errs.services = "Please select at least one service.";
+    if (!form.querySelector('[data-group="location"] [aria-pressed="true"]')) errs.location = "Please choose your preferred office.";
+    if (document.getElementById("fullName").value.trim().length < 2) errs.fullName = "Please enter your full name.";
+    if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(document.getElementById("email").value.trim())) errs.email = "Please enter a valid email address.";
+    if (digits(phone.value).length !== 10) errs.phone = "Please enter a valid 10-digit phone number.";
+    var de = dobError(dob.value); if (de) errs.dob = de;
+    form.querySelectorAll("[data-err]").forEach(function (p) { p.textContent = errs[p.getAttribute("data-err")] || ""; });
+    btn.textContent = "Demo only, form not connected yet.";
+  });
+})();
+</script>
+</body>
+</html>
