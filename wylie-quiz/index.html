@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="form-action 'none'; connect-src 'none'; script-src 'self' 'unsafe-inline' https://ecommerce.wyliebiz.com; frame-src https://ecommerce.wyliebiz.com">
+<title>TEST: Wylie lead form | Dr. Robert Fortino</title>
+<meta name="author" content="Dr. Robert Fortino">
+<meta name="description" content="Physician-supervised weight care with Dr. Robert Fortino, DO, in Philadelphia and Turnersville, NJ. Answer two quick questions, then book a consultation.">
+<link rel="icon" type="image/png" href="../images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking the first paint (system fonts show until they arrive). -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&amp;family=Playfair+Display:wght@600&amp;display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&amp;family=Playfair+Display:wght@600&amp;display=swap"></noscript>
+<style>
+  /* Combined option: book/'s look, headline and proof strip, then a 2-question quiz before booking.
+     The quiz never recommends a treatment; every result ends in a consultation with Dr. Fortino. */
+  :root {
+    --radius: .5rem;
+    --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
+    --font-display: "Playfair Display", Georgia, serif;
+    --brand-tint: oklch(97.2% .014 224);
+    --background: oklch(100% 0 0);
+    --foreground: oklch(24% .03 250);
+    --card: oklch(100% 0 0);
+    --primary: oklch(40% .093 250.5);
+    --secondary: oklch(65.5% .107 233);
+    --secondary-foreground: oklch(100% 0 0);
+    --muted: oklch(97.2% .008 235);
+    --muted-foreground: oklch(50% .025 250);
+    --accent: oklch(95.5% .019 227);
+    --destructive: oklch(55% .2 27.3);
+    --border: oklch(90% .012 240);
+    --input: oklch(88% .014 240);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+  html { -webkit-text-size-adjust: 100%; line-height: 1.5; scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { background: var(--background); color: var(--foreground); font-family: var(--font-sans);
+         -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -.01em; font-weight: inherit; font-size: inherit; }
+  img { display: block; max-width: 100%; height: auto; }
+  button { font: inherit; color: inherit; background: none; cursor: pointer; }
+  ul, ol { list-style: none; }
+  a { color: inherit; text-decoration: none; }
+  [hidden] { display: none !important; }
+
+  .wrap-6 { margin: 0 auto; max-width: 72rem; padding: 0 1.25rem; }
+  .wrap-5 { margin: 0 auto; max-width: 64rem; padding: 0 1.25rem; }
+  .wrap-3 { margin: 0 auto; max-width: 48rem; padding: 0 1.25rem; }
+
+  /* Placeholders for details Helen still needs to send (same look as the GLP-1 page). */
+  .todo { background: #fff6d6; border: 1px dashed #e0b93b; border-radius: 4px; padding: 0 6px;
+          font-family: var(--font-sans); font-size: .875rem; font-weight: 500; letter-spacing: 0;
+          text-transform: none; color: #6b5200; }
+
+  /* Header */
+  header { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--border);
+           background: color-mix(in oklab, var(--background) 95%, transparent);
+           -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+  header .wrap-6 { display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+                   padding-top: .75rem; padding-bottom: .75rem; }
+  .logo { height: 2rem; width: auto; }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; justify-content: center; border-radius: calc(var(--radius) - 2px);
+         background: var(--secondary); color: var(--secondary-foreground); font-weight: 600;
+         text-transform: uppercase; letter-spacing: .025em; transition: background-color .15s; }
+  .btn:hover { background: var(--primary); }
+  .btn:disabled { opacity: .5; cursor: default; }
+  .btn:disabled:hover { background: var(--secondary); }
+  .btn-header { display: none; flex-shrink: 0; min-height: 44px; padding: .625rem 1.25rem; font-size: .875rem; line-height: 1.25rem; }
+  .mobile-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; border-top: 1px solid var(--border);
+                padding: .75rem 1rem calc(.75rem + env(safe-area-inset-bottom));
+                background: color-mix(in oklab, var(--background) 96%, transparent); box-shadow: 0 -2px 10px #0000000f;
+                -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); transition: transform .2s ease; }
+  .mobile-bar .btn { width: 100%; min-height: 52px; padding: .75rem 1rem; font-size: 1.0625rem; }
+  .mobile-bar.away { transform: translateY(calc(100% + 1px)); visibility: hidden; transition: transform .2s ease, visibility 0s .2s; }
+  body { padding-bottom: calc(5rem + env(safe-area-inset-bottom)); }
+  .btn-big { width: 100%; min-height: 52px; padding: 1rem 1.5rem; font-size: 1.0625rem; line-height: 1.5rem; text-align: center; }
+  .back { min-height: 44px; padding: 0 .25rem; font-size: .95rem; font-weight: 600; color: var(--primary); }
+  .back:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+  /* Hero */
+  #top { background: var(--brand-tint); }
+  #top > .wrap-3 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .center { text-align: center; }
+  .eyebrow { font-size: .875rem; line-height: 1.25rem; font-weight: 600; text-transform: uppercase;
+             letter-spacing: .18em; color: var(--secondary); }
+  h1 { margin-top: .75rem; font-size: 2.25rem; line-height: 1.1; color: var(--primary); }
+  .lead { margin: 1.25rem auto 0; max-width: 42rem; font-size: 1.125rem; line-height: 1.625;
+          color: color-mix(in oklab, var(--foreground) 80%, transparent); }
+  .fine { margin-top: .75rem; text-align: center; font-size: .875rem; line-height: 1.375rem; color: var(--muted-foreground); }
+
+  /* Proof strip (same as book/) */
+  .proof { margin-top: 2rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+  .proof a { display: flex; height: 100%; flex-direction: column; align-items: center; gap: .25rem;
+             border: 1px solid var(--border); border-radius: var(--radius); background: var(--card);
+             padding: .875rem .625rem; text-align: center; transition: border-color .15s; }
+  .proof a:hover { border-color: var(--secondary); }
+  .proof svg { width: 1.5rem; height: 1.5rem; color: var(--secondary); }
+  .proof strong { font-size: .9375rem; line-height: 1.25; color: var(--primary); }
+  .proof span { font-size: .875rem; line-height: 1.375; color: var(--muted-foreground); }
+  .proof .todo { margin-top: .25rem; }
+  .stars { color: oklch(76% .16 75); letter-spacing: .1em; font-size: 1rem; }
+
+  /* Quiz card (pattern from plan-finder/) */
+  .tool { margin-top: 2rem; scroll-margin-top: 4.5rem; border: 1px solid var(--border); border-radius: .75rem; background: var(--card);
+          padding: 1.25rem; text-align: left; box-shadow: 0 1px 3px 0 #0000001a, 0 1px 2px -1px #0000001a; }
+  .progress-row { display: flex; justify-content: space-between; align-items: center; font-size: .875rem;
+                  line-height: 1.25rem; font-weight: 600; color: var(--muted-foreground); }
+  .bar { margin-top: .5rem; height: .5rem; border-radius: 9999px; background: var(--muted); overflow: hidden;
+         border: 1px solid var(--border); }
+  .bar span { display: block; height: 100%; width: 0; background: var(--secondary); border-radius: 9999px;
+              transition: width .3s ease; }
+  .step { margin-top: 1.5rem; }
+  .step:focus { outline: none; }
+  .q { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.25; color: var(--primary); }
+  .hint { margin-top: .25rem; font-size: .875rem; line-height: 1.25rem; color: var(--muted-foreground); }
+  .options { margin-top: 1.25rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: .75rem; }
+  .opt { display: flex; width: 100%; align-items: center; gap: .75rem; border-radius: var(--radius);
+         border: 2px solid var(--border); background: var(--background); padding: 1rem; text-align: left;
+         transition: border-color .15s, background-color .15s; min-height: 56px; }
+  .opt:hover { border-color: color-mix(in oklab, var(--secondary) 60%, transparent);
+               background: color-mix(in oklab, var(--accent) 40%, transparent); }
+  .opt .box { display: flex; width: 1.25rem; height: 1.25rem; flex-shrink: 0; align-items: center;
+              justify-content: center; border-radius: 9999px; border: 2px solid var(--input); background: var(--background); }
+  .opt .box svg { display: none; width: .875rem; height: .875rem; }
+  .opt .label { font-size: 1rem; font-weight: 500; line-height: 1.375; color: var(--foreground); }
+  .opt .label small { display: block; margin-top: .125rem; font-size: .875rem; font-weight: 400; color: var(--muted-foreground); }
+  .opt[aria-checked="true"] { border-color: var(--secondary); background: var(--accent); }
+  .opt[aria-checked="true"] .box { border-color: var(--secondary); background: var(--secondary); color: var(--secondary-foreground); }
+  .opt[aria-checked="true"] .box svg { display: block; }
+  .nav-row { margin-top: 1.75rem; display: flex; flex-direction: column-reverse; gap: .75rem; align-items: stretch; }
+  .nav-row .back { align-self: center; }
+  .nav-row .btn { width: 100%; min-height: 52px; padding: .875rem 1.5rem; font-size: 1.0625rem; }
+  .privacy-note { margin-top: 1rem; font-size: .875rem; line-height: 1.5; color: var(--muted-foreground); }
+
+  /* Result */
+  .result-eyebrow { font-size: .875rem; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; color: var(--secondary); }
+  .result-title { margin-top: .5rem; font-family: var(--font-display); font-size: 1.875rem; line-height: 1.2; color: var(--primary); }
+  .result-card { margin-top: 1.25rem; border: 2px solid var(--secondary); background: var(--accent); border-radius: var(--radius); padding: 1.25rem; }
+  .result-card p { font-size: 1rem; line-height: 1.625; color: color-mix(in oklab, var(--foreground) 85%, transparent); }
+  .result-card p + p { margin-top: .75rem; }
+  .summary { margin-top: 1.25rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: .5rem; }
+  .summary li { display: flex; align-items: flex-start; gap: .5rem; font-size: .95rem; line-height: 1.4; }
+  .summary svg { margin-top: .15rem; width: 1rem; height: 1rem; flex-shrink: 0; color: var(--secondary); }
+  .summary b { font-weight: 600; }
+  .summary .todo { display: inline-block; margin-top: .25rem; }
+  .not-advice { margin-top: 1.25rem; border-left: 4px solid var(--secondary); background: var(--muted);
+                padding: .75rem 1rem; border-radius: 0 var(--radius) var(--radius) 0; font-size: .95rem; line-height: 1.5; }
+  .book-cta { margin-top: 1.25rem; }
+  .restart { display: block; margin: 1rem auto 0; }
+  .office-addr { margin-top: .5rem; text-align: center; font-size: .875rem; color: var(--muted-foreground); }
+  .office-addr a { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; display: inline-block; padding: .75rem 0; }
+
+  /* TEST COPY only */
+  .test-banner { background: #fff6d6; border-bottom: 2px dashed #e0b93b; color: #6b5200; text-align: center;
+                 font-size: .875rem; font-weight: 600; padding: .5rem 1rem; }
+  .lead-form { margin-top: 1.25rem; }
+  .lead-form-title { font-family: var(--font-display); font-size: 1.375rem; line-height: 1.25; color: var(--primary); }
+  #wylie-slot { margin-top: .75rem; min-height: 6rem; }
+  #wylie-slot iframe { display: block; }
+
+  /* No-JS fallback: the two booking links */
+  .nojs a { display: block; margin-top: .75rem; }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--border); background: color-mix(in oklab, var(--muted) 60%, transparent); }
+  footer .wrap-5 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .foot-name { font-family: var(--font-display); font-size: 1.125rem; line-height: 1.75rem; color: var(--primary); }
+  .foot-towns { margin-top: .25rem; font-size: .875rem; line-height: 1.25rem; color: var(--muted-foreground); }
+  footer nav { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; font-size: .875rem; line-height: 1.25rem; }
+  footer nav a { color: var(--primary); text-underline-offset: 4px; display: inline-block; padding: .75rem 0; }
+  footer nav a:hover { text-decoration: underline; }
+  .legal { margin-top: 1.5rem; font-size: .875rem; line-height: 1.625; color: var(--muted-foreground); }
+  .legal > * + * { margin-top: .75rem; }
+
+  /* sm: 640px and up */
+  @media (min-width: 40rem) {
+    .logo { height: 2.75rem; }
+    .btn-header { display: inline-flex; }
+    .mobile-bar { display: none; }
+    body { padding-bottom: 0; }
+    h1 { font-size: 3rem; }
+    .tool { padding: 2rem; }
+    .options.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .nav-row { flex-direction: row; justify-content: space-between; align-items: center; }
+    .nav-row .btn { width: auto; min-width: 12rem; }
+    .summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  /* md: 768px and up */
+  @media (min-width: 48rem) {
+    #top > .wrap-3 { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+    .proof { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+</style>
+</head>
+<body>
+<div class="test-banner">TEST COPY: Wylie TRIAL account lead form. Not the live page; submissions go to the trial account.</div>
+<header>
+  <div class="wrap-6">
+    <img src="../images/dr-fortino-logo.png" alt="Dr. Robert Fortino — Weight Loss, Anti-Aging, Lifestyle Medicine" class="logo" width="372" height="95">
+    <a href="#quiz" class="btn btn-header">Book a consultation</a>
+  </div>
+</header>
+
+<main>
+  <section id="top">
+    <div class="wrap-3">
+      <div class="center">
+        <p class="eyebrow">Philadelphia &amp; South Jersey</p>
+        <h1>Physician-Led Weight Care, Built Around You</h1>
+        <p class="lead">A personalized plan from a board-certified internal medicine physician, with in-person follow-up at our Philadelphia and Turnersville offices. Answer two quick questions, then book your consultation.</p>
+      </div>
+
+      <ul class="proof" aria-label="Credentials and reviews">
+        <li>
+          <a href="#todo-legitscript" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            <strong>LegitScript Certified</strong>
+            <span>Verified by LegitScript</span>
+            <span class="todo">seal + verification link</span>
+          </a>
+        </li>
+        <li>
+          <a href="#todo-webmd-accredited" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            <strong>WebMD Accredited</strong>
+            <span>Listed on WebMD</span>
+            <span class="todo">badge + listing link</span>
+          </a>
+        </li>
+        <li>
+          <a href="#todo-webmd-award" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>
+            <strong>WebMD Award</strong>
+            <span class="todo">[[HELEN: award name, year, badge, link]]</span>
+          </a>
+        </li>
+        <li>
+          <a href="#todo-google-reviews" target="_blank" rel="noopener">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <strong>Google Reviews</strong>
+            <span class="todo">[[HELEN: rating, review count, profile link]]</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="tool" id="quiz" aria-live="polite">
+        <noscript>
+          <div class="nojs">
+            <p class="q">Book a consultation</p>
+            <a class="btn btn-big" href="#todo-wylie-philadelphia" target="_blank" rel="noopener">Philadelphia office</a>
+            <a class="btn btn-big" href="#todo-wylie-turnersville" target="_blank" rel="noopener">Turnersville, NJ office</a>
+          </div>
+        </noscript>
+
+        <div id="progress" hidden>
+          <div class="progress-row"><span id="step-label">Question 1 of 2</span><span id="step-pct">0%</span></div>
+          <div class="bar" role="progressbar" aria-label="Progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="bar-fill"></span></div>
+        </div>
+
+        <div class="step" data-step="1" tabindex="-1" hidden>
+          <h2 class="q">What would you like from your consultation?</h2>
+          <p class="hint">Pick the one that fits best.</p>
+          <div class="options" role="radiogroup" aria-label="What you'd like from your consultation" data-name="goal">
+            <button type="button" class="opt" role="radio" aria-checked="false" data-value="options"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="label">Learn about medical weight management options</span></button>
+            <button type="button" class="opt" role="radio" aria-checked="false" data-value="plan"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="label">A personalized plan from a physician</span></button>
+            <button type="button" class="opt" role="radio" aria-checked="false" data-value="support"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="label">Ongoing in-person support and follow-up</span></button>
+            <button type="button" class="opt" role="radio" aria-checked="false" data-value="questions"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="label">Not sure yet, I have questions</span></button>
+          </div>
+        </div>
+
+        <div class="step" data-step="2" tabindex="-1" hidden>
+          <h2 class="q">Which office would you like to visit?</h2>
+          <div class="options two" role="radiogroup" aria-label="Office" data-name="office">
+            <button type="button" class="opt" role="radio" aria-checked="false" data-value="philadelphia"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="label">Philadelphia<small>1822 S. Broad Street</small></span></button>
+            <button type="button" class="opt" role="radio" aria-checked="false" data-value="turnersville"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="label">Turnersville, NJ<small>129 Johnson Rd Suite A3</small></span></button>
+          </div>
+          <p class="privacy-note">Your answers stay on this screen. Only the details you type into the request form on the next screen are sent.</p>
+        </div>
+
+        <div class="nav-row" id="nav" hidden>
+          <button type="button" class="back" id="back-btn" hidden>← Back</button>
+          <button type="button" class="btn" id="next-btn" disabled>Next →</button>
+        </div>
+
+        <div class="step" data-step="3" tabindex="-1" hidden id="result">
+          <p class="result-eyebrow">Your next step</p>
+          <h2 class="result-title">A consultation with Dr. Fortino</h2>
+          <div class="result-card">
+            <p id="r-focus"></p>
+            <p>Every plan starts with a consultation. Dr. Fortino reviews your health history and talks through which options, if any, may be right for you.</p>
+          </div>
+          <div class="lead-form" id="r-book">
+            <h3 class="lead-form-title">Request your consultation</h3>
+            <p class="hint">Leave your details and the office will contact you to schedule.</p>
+            <div id="wylie-slot"><p class="fine">Loading the form…</p></div>
+            <p class="office-addr" id="r-addr"></p>
+            <p class="fine">No obligation. <span class="todo">[[HELEN: is the consultation free?]]</span></p>
+          </div>
+          <ul class="summary" id="r-summary"></ul>
+          <p class="not-advice">This is not medical advice and does not recommend any treatment. All treatment requires an evaluation by a licensed provider. Individual results vary.</p>
+          <button type="button" class="back restart" id="restart-btn">Start over</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap-5">
+    <p class="foot-name">Dr. Robert Fortino, DO</p>
+    <p class="foot-towns">Philadelphia, PA · Turnersville, NJ</p>
+    <nav>
+      <a href="https://drfortino.net/privacy-policy/">Privacy Policy</a>
+      <a href="https://drfortino.net/hipaa-privacy-policy/">HIPAA Privacy Policy</a>
+      <a href="https://drfortino.net/terms-conditions/">Terms &amp; Conditions</a>
+    </nav>
+    <div class="legal">
+      <p>Compounded medications are prepared by a licensed compounding pharmacy and are not approved by the FDA for safety, effectiveness, or manufacturing. Compounded Semaglutide and Tirzepatide are not the same as, and are not generic versions of, any FDA-approved brand-name medication.</p>
+      <p>All treatment requires an evaluation by a licensed provider. Individual results vary. The information on this page is for general education only and is not medical advice, diagnosis, or treatment. Some restrictions apply.</p>
+      <p>© 2026 Dr. Robert Fortino. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-bar" id="mobile-bar">
+  <a href="#quiz" class="btn">Book a consultation</a>
+</div>
+
+<script>
+(function () {
+  // DEMO ONLY. Answers live in this one variable while the page is open. Nothing is sent, saved, stored in the
+  // browser or added to the booking link (no fetch, no form action, no cookies, no localStorage, no analytics).
+  var answers = { goal: null, office: null };
+  var QUESTIONS = 2;
+  var step = 1, started = false;
+
+  // Each office books into its own Wylie account. Swap the #todo hrefs for the real links.
+  var OFFICES = {
+    philadelphia: { name: "Philadelphia", href: "#todo-wylie-philadelphia",
+                    addr: "1822 S. Broad Street, Philadelphia, PA 19145", tel: "215-336-8000", telHref: "tel:+12153368000" },
+    turnersville: { name: "Turnersville, NJ", href: "#todo-wylie-turnersville",
+                    addr: "129 Johnson Rd Suite A3, Turnersville, NJ 08012", tel: "856-318-4100", telHref: "tel:+18563184100" }
+  };
+
+  // Restates what the visitor asked for. Never names a treatment, medication or dose.
+  var FOCUS = {
+    options: "You'd like to learn about medical weight management options. Your consultation is the place to go over them with Dr. Fortino.",
+    plan: "You'd like a personalized plan from a physician. That starts with a consultation with Dr. Fortino.",
+    support: "You'd like ongoing in-person support. Dr. Fortino's practice offers face-to-face follow-up, starting with a consultation.",
+    questions: "Not sure yet is completely fine. A consultation with Dr. Fortino is the place to ask your questions."
+  };
+  var GOAL_LABEL = { options: "Learn about options", plan: "A personalized plan", support: "Ongoing support", questions: "Questions first" };
+
+  var $ = function (id) { return document.getElementById(id); };
+  var nextBtn = $("next-btn"), backBtn = $("back-btn"), nav = $("nav"), tool = $("quiz");
+  var NAMES = ["goal", "office"];
+  var smooth = matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+
+  function show(n) {
+    step = n;
+    document.querySelectorAll(".step").forEach(function (s) { s.hidden = +s.getAttribute("data-step") !== n; });
+    var done = n > QUESTIONS;
+    nav.hidden = done;
+    backBtn.hidden = n === 1;
+    var pct = done ? 100 : Math.round(((n - 1) / QUESTIONS) * 100);
+    $("bar-fill").style.width = pct + "%";
+    document.querySelector(".bar").setAttribute("aria-valuenow", pct);
+    $("step-pct").textContent = pct + "%";
+    $("step-label").textContent = done ? "All done" : "Question " + n + " of " + QUESTIONS;
+    nextBtn.textContent = n === QUESTIONS ? "See My Next Step →" : "Next →";
+    nextBtn.disabled = !done && !answers[NAMES[n - 1]];
+    if (done) render();
+    var el = document.querySelector('.step[data-step="' + n + '"]');
+    if (el && n !== 1) el.focus({ preventScroll: true });
+    // After each answer, bring the quiz card back to the top so the next question fills the screen.
+    if (started) tool.scrollIntoView({ behavior: smooth, block: "start" });
+    started = true;
+  }
+
+  // Tap buttons (one choice per question). Picking an answer moves on by itself after a short pause.
+  document.querySelectorAll(".options[data-name]").forEach(function (group) {
+    var name = group.getAttribute("data-name");
+    group.querySelectorAll(".opt").forEach(function (opt) {
+      opt.addEventListener("click", function () {
+        group.querySelectorAll(".opt").forEach(function (o) { o.setAttribute("aria-checked", "false"); });
+        opt.setAttribute("aria-checked", "true");
+        answers[name] = opt.getAttribute("data-value");
+        nextBtn.disabled = false;
+        var here = step;
+        setTimeout(function () { if (step === here) show(step + 1); }, 350);
+      });
+    });
+  });
+
+  nextBtn.addEventListener("click", function () { if (answers[NAMES[step - 1]]) show(step + 1); });
+  backBtn.addEventListener("click", function () { if (step > 1) show(step - 1); });
+
+  function li(label, value, todo) {
+    var item = document.createElement("li");
+    item.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+    var span = document.createElement("span"), b = document.createElement("b");
+    b.textContent = label + ": ";
+    span.appendChild(b);
+    span.appendChild(document.createTextNode(value));
+    if (todo) {
+      var t = document.createElement("span");
+      t.className = "todo";
+      t.textContent = todo;
+      span.appendChild(document.createElement("br"));
+      span.appendChild(t);
+    }
+    item.appendChild(span);
+    return item;
+  }
+
+  function render() {
+    var o = OFFICES[answers.office];
+    $("r-focus").textContent = FOCUS[answers.goal];
+    var list = $("r-summary");
+    list.innerHTML = "";
+    list.appendChild(li("Office", o.name));
+    list.appendChild(li("You'd like", GOAL_LABEL[answers.goal]));
+    list.appendChild(li("First step", "A consultation", "[[HELEN: phone call with the Patient Care Coordinator, or office visit?]]"));
+    loadWylie();
+    $("r-addr").innerHTML = "";
+    $("r-addr").appendChild(document.createTextNode(o.addr));
+    $("r-addr").appendChild(document.createElement("br"));
+    var tel = document.createElement("a");
+    tel.href = o.telHref;
+    tel.textContent = o.tel;
+    $("r-addr").appendChild(tel);
+    setBar(o);
+  }
+
+  // TEST: Wylie's script puts its form next to its own <script> tag, so the tag is added inside the slot.
+  // Nothing from Wylie loads until the visitor reaches this screen.
+  var wylieLoaded = false;
+  function loadWylie() {
+    if (wylieLoaded) return;
+    wylieLoaded = true;
+    var slot = $("wylie-slot");
+    var s = document.createElement("script");
+    s.type = "text/javascript";
+    s.src = "https://ecommerce.wyliebiz.com/Companion.bundle.js";
+    s.setAttribute("data-iframe-url", "https://ecommerce.wyliebiz.com/avello-labs/s1/leadForm");
+    s.setAttribute("data-minimal-mode", "true");
+    s.setAttribute("data-lead-form-optionals", "street1,city,state,zip");
+    s.setAttribute("data-lead-form-hiddens", "street1,street2,city,state,zip");
+    s.onload = function () { var p = slot.querySelector("p.fine"); if (p) p.remove(); };
+    s.onerror = function () { slot.querySelector("p.fine").textContent = "The form couldn't load. Please call the office."; };
+    slot.appendChild(s);
+  }
+
+  $("restart-btn").addEventListener("click", function () {
+    answers = { goal: null, office: null };
+    document.querySelectorAll(".opt").forEach(function (o) { o.setAttribute("aria-checked", "false"); });
+    setBar(null);
+    show(1);
+  });
+
+  // Phones: the bottom booking bar takes visitors to the quiz and steps aside while a question is on screen.
+  // Once the result shows, it books the chosen office directly, and steps aside only while the result's own
+  // booking button is on screen.
+  var bar = $("mobile-bar"), barLink = bar.querySelector("a"), seen = new Map();
+  function setBar(o) {
+    barLink.href = o ? "#r-book" : "#quiz";
+    barLink.textContent = o ? "Request a consultation" : "Book a consultation";
+    updateBar();
+  }
+  function updateBar() {
+    var onResult = step > QUESTIONS;
+    bar.classList.toggle("away", !!(onResult ? seen.get($("r-book")) : seen.get(tool)));
+  }
+  barLink.addEventListener("click", function (e) {
+    if (step > QUESTIONS) return;
+    e.preventDefault();
+    tool.scrollIntoView({ behavior: smooth, block: "start" });
+  });
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { seen.set(en.target, en.isIntersecting); });
+      updateBar();
+    }, { threshold: 0.25 });
+    io.observe(tool);
+    io.observe($("r-book"));
+  }
+
+  // Links still waiting on Helen (#todo-...) do nothing instead of opening this page in a new tab.
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest('a[href^="#todo-"]');
+    if (a) e.preventDefault();
+  });
+
+  $("progress").hidden = false;
+  show(1);
+})();
+</script>
+</body>
+</html>

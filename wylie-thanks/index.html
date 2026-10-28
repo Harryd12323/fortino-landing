@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; form-action 'none'; base-uri 'none'">
+<title>TEST: Thank you | Dr. Robert Fortino</title>
+<meta name="author" content="Dr. Robert Fortino">
+<link rel="icon" type="image/png" href="../images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&amp;family=Playfair+Display:wght@600&amp;display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&amp;family=Playfair+Display:wght@600&amp;display=swap"></noscript>
+<script>
+  // TEST. Whatever a redirect adds to this address (?name=..., #...) is never read; it's removed from the
+  // address bar and history at once, and no-referrer keeps it from being passed on.
+  if (location.search || location.hash) history.replaceState(null, "", location.pathname);
+</script>
+<style>
+  /* Same tokens as quiz/index.html; keep them identical. */
+  :root {
+    --radius: .5rem;
+    --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
+    --font-display: "Playfair Display", Georgia, serif;
+    --brand-tint: oklch(97.2% .014 224);
+    --background: oklch(100% 0 0);
+    --foreground: oklch(24% .03 250);
+    --card: oklch(100% 0 0);
+    --primary: oklch(40% .093 250.5);
+    --secondary: oklch(65.5% .107 233);
+    --secondary-foreground: oklch(100% 0 0);
+    --muted: oklch(97.2% .008 235);
+    --muted-foreground: oklch(50% .025 250);
+    --accent: oklch(95.5% .019 227);
+    --border: oklch(90% .012 240);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+  html { -webkit-text-size-adjust: 100%; line-height: 1.5; }
+  body { background: var(--background); color: var(--foreground); font-family: var(--font-sans);
+         -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -.01em; font-weight: inherit; font-size: inherit; }
+  img { display: block; max-width: 100%; height: auto; }
+  ul, ol { list-style: none; }
+  a { color: inherit; text-decoration: none; }
+
+  .wrap-6 { margin: 0 auto; max-width: 72rem; padding: 0 1.25rem; }
+  .wrap-5 { margin: 0 auto; max-width: 64rem; padding: 0 1.25rem; }
+  .wrap-3 { margin: 0 auto; max-width: 48rem; padding: 0 1.25rem; }
+
+  .test-banner { background: #fff6d6; border-bottom: 2px dashed #e0b93b; color: #6b5200; text-align: center;
+                 font-size: .875rem; font-weight: 600; padding: .5rem 1rem; }
+
+  header { border-bottom: 1px solid var(--border); background: var(--background); }
+  header .wrap-6 { display: flex; align-items: center; padding-top: .75rem; padding-bottom: .75rem; }
+  .logo { height: 2rem; width: auto; }
+
+  /* Hero */
+  #top { background: var(--brand-tint); }
+  #top > .wrap-3 { padding-top: 2.5rem; padding-bottom: 2.5rem; text-align: center; }
+  .check { margin: 0 auto; display: flex; width: 3.5rem; height: 3.5rem; align-items: center; justify-content: center;
+           border-radius: 9999px; background: var(--secondary); color: var(--secondary-foreground); }
+  .check svg { width: 1.75rem; height: 1.75rem; }
+  .eyebrow { margin-top: 1.25rem; font-size: .875rem; line-height: 1.25rem; font-weight: 600; text-transform: uppercase;
+             letter-spacing: .18em; color: var(--secondary); }
+  h1 { margin-top: .5rem; font-size: 2rem; line-height: 1.15; color: var(--primary); }
+  .lead { margin: 1rem auto 0; max-width: 34rem; font-size: 1.125rem; line-height: 1.625;
+          color: color-mix(in oklab, var(--foreground) 80%, transparent); }
+
+  /* Sections */
+  .section > .wrap-3 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .section + .section { border-top: 1px solid var(--border); }
+  .section-title { font-size: 1.625rem; line-height: 1.25; color: var(--primary); text-align: center; }
+
+  /* What happens next */
+  .steps { margin-top: 1.5rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: .75rem; counter-reset: step; }
+  .steps li { display: flex; gap: 1rem; align-items: flex-start; border: 1px solid var(--border); border-radius: var(--radius);
+              background: var(--card); padding: 1rem; counter-increment: step; }
+  .steps li::before { content: counter(step); display: flex; flex-shrink: 0; width: 2.25rem; height: 2.25rem;
+                      align-items: center; justify-content: center; border-radius: 9999px; background: var(--accent);
+                      border: 2px solid var(--secondary); color: var(--primary); font-weight: 700; }
+  .steps h3 { font-size: 1.125rem; line-height: 1.35; color: var(--primary); }
+  .steps p { margin-top: .25rem; font-size: 1rem; line-height: 1.5; color: color-mix(in oklab, var(--foreground) 85%, transparent); }
+
+  /* Credentials */
+  #about { background: color-mix(in oklab, var(--muted) 60%, transparent); }
+  .creds { margin-top: 1.5rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: .75rem; }
+  .creds li { display: flex; gap: .75rem; align-items: flex-start; border: 1px solid var(--border); border-radius: var(--radius);
+              background: var(--card); padding: 1rem; }
+  .creds svg { margin-top: .2rem; width: 1.25rem; height: 1.25rem; flex-shrink: 0; color: var(--secondary); }
+  .creds strong { display: block; font-size: 1rem; line-height: 1.35; color: var(--primary); }
+  .creds span { display: block; margin-top: .125rem; font-size: .9375rem; line-height: 1.45; color: var(--muted-foreground); }
+
+  /* Offices */
+  .offices { margin-top: 1.5rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: .75rem; }
+  .office { border: 2px solid var(--border); border-radius: var(--radius); background: var(--background); padding: 1rem; }
+  .office h3 { font-size: 1.25rem; line-height: 1.3; color: var(--primary); }
+  .office p { margin-top: .25rem; font-size: 1rem; line-height: 1.5; color: color-mix(in oklab, var(--foreground) 85%, transparent); }
+  .office a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; color: var(--primary);
+              text-decoration: underline; text-underline-offset: 3px; }
+  .not-advice { margin-top: 1.5rem; border-left: 4px solid var(--secondary); background: var(--muted);
+                padding: .75rem 1rem; border-radius: 0 var(--radius) var(--radius) 0; font-size: .95rem; line-height: 1.5; }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--border); background: color-mix(in oklab, var(--muted) 60%, transparent); }
+  footer .wrap-5 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .foot-name { font-family: var(--font-display); font-size: 1.125rem; line-height: 1.75rem; color: var(--primary); }
+  .foot-towns { margin-top: .25rem; font-size: .875rem; line-height: 1.25rem; color: var(--muted-foreground); }
+  footer nav { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; font-size: .875rem; line-height: 1.25rem; }
+  footer nav a { color: var(--primary); text-underline-offset: 4px; display: inline-block; padding: .75rem 0; }
+  footer nav a:hover { text-decoration: underline; }
+  .legal { margin-top: 1.5rem; font-size: .875rem; line-height: 1.625; color: var(--muted-foreground); }
+  .legal > * + * { margin-top: .75rem; }
+
+  @media (min-width: 40rem) {
+    .logo { height: 2.75rem; }
+    h1 { font-size: 2.5rem; }
+    .creds, .offices { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (min-width: 48rem) {
+    #top > .wrap-3 { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+    .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .steps li { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="test-banner">TEST COPY: thank-you page for the Wylie TRIAL lead form. Not the live site.</div>
+<header>
+  <div class="wrap-6">
+    <img src="../images/dr-fortino-logo.png" alt="Dr. Robert Fortino — Weight Loss, Anti-Aging, Lifestyle Medicine" class="logo" width="372" height="95">
+  </div>
+</header>
+
+<main>
+  <section id="top">
+    <div class="wrap-3">
+      <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+      <p class="eyebrow">Request received</p>
+      <h1>Thank you for choosing Dr. Robert Fortino.</h1>
+      <p class="lead">We've received your request. Our team will reach out soon to set up your consultation.</p>
+    </div>
+  </section>
+
+  <section class="section" id="next">
+    <div class="wrap-3">
+      <h2 class="section-title">What happens next</h2>
+      <ol class="steps">
+        <li><div><h3>Our team reaches out</h3><p>A member of our team will contact you to schedule your consultation.</p></div></li>
+        <li><div><h3>You talk through your goals</h3><p>Share your health history and what you'd like from your care, and ask any questions you have.</p></div></li>
+        <li><div><h3>You visit the office of your choice</h3><p>Meet with Dr. Fortino in person in Philadelphia or Turnersville, NJ.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Facts as drfortino.net words them (home and Meet Our Doctor pages, checked 2026-10-28). Text only:
+       award logos and badges need Helen's OK. -->
+  <section class="section" id="about">
+    <div class="wrap-3">
+      <h2 class="section-title">About Dr. Fortino</h2>
+      <ul class="creds">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          <div><strong>Board-certified internal medicine physician</strong><span>Doctor of Osteopathic Medicine (DO), a graduate of the Philadelphia College of Osteopathic Medicine (PCOM)</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <div><strong>Medical weight management since 1999</strong><span>Long before today's GLP-1 medications</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <div><strong>Obesity Medicine Association (OMA) member</strong></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>
+          <div><strong>2026 Philly Favorites Gold Winner</strong><span>Weight Loss Center, voted by readers of The Philadelphia Inquirer</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>
+          <div><strong>WebMD Patients' Choice Award</strong><span>Endocrinology, Diabetes &amp; Metabolism, Philadelphia</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="offices">
+    <div class="wrap-3">
+      <h2 class="section-title">Our offices</h2>
+      <ul class="offices">
+        <li class="office">
+          <h3>Philadelphia</h3>
+          <p>1822 S. Broad Street<br>Philadelphia, PA 19145</p>
+          <a href="tel:+12153368000">215-336-8000</a>
+        </li>
+        <li class="office">
+          <h3>Turnersville, NJ</h3>
+          <p>129 Johnson Rd Suite A3<br>Turnersville, NJ 08012</p>
+          <a href="tel:+18563184100">856-318-4100</a>
+        </li>
+      </ul>
+      <p class="not-advice">This is not medical advice and does not recommend any treatment. All treatment requires an evaluation by a licensed provider. Individual results vary.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap-5">
+    <p class="foot-name">Dr. Robert Fortino, DO</p>
+    <p class="foot-towns">Philadelphia, PA · Turnersville, NJ</p>
+    <nav>
+      <a href="https://drfortino.net/privacy-policy/">Privacy Policy</a>
+      <a href="https://drfortino.net/hipaa-privacy-policy/">HIPAA Privacy Policy</a>
+      <a href="https://drfortino.net/terms-conditions/">Terms &amp; Conditions</a>
+    </nav>
+    <div class="legal">
+      <p>Compounded medications are prepared by a licensed compounding pharmacy and are not approved by the FDA for safety, effectiveness, or manufacturing. Compounded Semaglutide and Tirzepatide are not the same as, and are not generic versions of, any FDA-approved brand-name medication.</p>
+      <p>All treatment requires an evaluation by a licensed provider. Individual results vary. The information on this page is for general education only and is not medical advice, diagnosis, or treatment. Some restrictions apply.</p>
+      <p>© 2026 Dr. Robert Fortino. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
